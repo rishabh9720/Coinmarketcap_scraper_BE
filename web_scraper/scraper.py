@@ -56,7 +56,7 @@ class CoinMarketCapScraper:
             logger.error(f"An error occurred while fetching table data: {e}")
         return chunk_data
 
-    def fetch_table_data(self, page_count=3, total_chunks=20):
+    def fetch_table_data(self, page_count=2, total_chunks=20):
         """
         Fetch data from multiple pages of the CoinMarketCap table.
         ---
@@ -70,6 +70,8 @@ class CoinMarketCapScraper:
         table_data = []
         if self.browser:
             for page_num in range(1, page_count + 1):
+                # Visit the next page
+                self.browser.visit(f'{settings.WEBSITE_URL}?page={page_num}')
                 scroll_step = 500
                 page_height = 0
                 chunk_count = 1
@@ -83,8 +85,6 @@ class CoinMarketCapScraper:
                     )
                     page_height = updated_height
                     chunk_count += 1
-                # Visit the next page
-                self.browser.visit(f'{settings.WEBSITE_URL}?page={page_num}')
 
                 # Break if reached the specified page count
                 if page_num >= page_count:

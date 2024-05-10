@@ -30,9 +30,10 @@ class DriverManager:
         """
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
+        options.add_argument('--start-maximized')
+
         try:
-            self.web_driver = Browser(driver_name='chrome', options=options,)
-            self.web_driver.visit(settings.WEBSITE_URL)
+            self.web_driver = Browser(driver_name='chrome', options=options)
         except Exception as e:
             raise Exception(f"Error initializing WebDriver instance: {e}")
 

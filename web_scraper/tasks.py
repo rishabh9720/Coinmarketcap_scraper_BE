@@ -21,4 +21,5 @@ def scrape_coinmarket_data_and_post():
 
     # Fetch data from CoinMarketCap table
     crypto_scrapped_data = web_scraper_obj.fetch_table_data()
+    web_driver_obj.quit_web_driver()
     print('crypto_scrapped_data', crypto_scrapped_data)
