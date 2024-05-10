@@ -1,9 +1,9 @@
 from celery.schedules import crontab
 
 CELERY_BEAT_SCHEDULE = {
-    "scrap_data_from_coin_market": {
-        "task": "apps.scraper.tasks.scrape_data_from_coin_market",
-        "schedule": 15,  # Execute every 15 seconds
-        "description": "Scrape data from coin market every 15 seconds",
+    "coinmarketcap_data_scrapper_task": {
+        "task": "apps.scraper.tasks.scrape_coinmarket_data_and_post",
+        "schedule": 20,
+        "description": "Task to scrape data from coinmarket every 20 seconds",
     },
 }
