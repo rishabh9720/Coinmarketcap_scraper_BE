@@ -1,15 +1,15 @@
 import logging
+
+from coinmarketcap_scraper import settings
 from selenium import webdriver
 from splinter import Browser
 
 logger = logging.getLogger(__name__)
 
+
 class DriverManager:
     """
-    A class to manage Selenium WebDriver instances.
-    ---
-    Attributes:
-        web_driver: The Selenium WebDriver instance.
+    A class to manage Splinter WebDriver instances.
     """
 
     def __init__(self):
@@ -17,10 +17,11 @@ class DriverManager:
         Initializes the DriverManager with the specified URL.
         """
         self.web_driver = None
+        self._initialize_web_driver()
 
-    def initialize_web_driver(self, website_url):
+    def _initialize_web_driver(self):
         """
-        Initializes the Selenium WebDriver instance with optional query parameters.
+        Initializes the Splinter WebDriver instance with optional query parameters.
         ---
         Args:
             query_params (str, optional): Query parameters to append to the URL.
@@ -31,14 +32,13 @@ class DriverManager:
         options.add_argument('--headless')
         try:
             self.web_driver = Browser(driver_name='chrome', options=options,)
-            self.web_driver.visit(website_url)
+            self.web_driver.visit(settings.WEBSITE_URL)
         except Exception as e:
-            logger.error(f"Error initializing WebDriver instance: {e}")
-            raise e
+            raise Exception(f"Error initializing WebDriver instance: {e}")
 
     def quit_web_driver(self):
         """
-        Quits the Selenium WebDriver instance.
+        Quits the Splinter WebDriver instance.
         ---
         Raises:
             Exception: If an error occurs while quitting the WebDriver instance.
@@ -47,5 +47,4 @@ class DriverManager:
             if self.web_driver:
                 self.web_driver.quit()
         except Exception as e:
-            logger.error(f"Error quitting WebDriver instance: {e}")
-            raise e
+            raise Exception(f"Error quitting WebDriver instance: {e}")

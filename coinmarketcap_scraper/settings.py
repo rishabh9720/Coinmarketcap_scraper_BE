@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,6 +26,10 @@ SECRET_KEY = 'django-insecure--(p1y!^zt4m4jl+jw+a(y7r3*p=d_q9#tus0tx_v!p!xw*lg2i
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+WEBSITE_URL = os.environ.get('WEBSITE_URL', 'https://coinmarketcap.com/')
+DEFAULT_WAIT_TIME = os.environ.get('DEFAULT_WAIT_TIME', 10)
 
 
 # Application definition
