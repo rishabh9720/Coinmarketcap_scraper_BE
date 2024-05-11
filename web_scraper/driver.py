@@ -1,6 +1,5 @@
 import logging
 
-from coinmarketcap_scraper import settings
 from selenium import webdriver
 from splinter import Browser
 

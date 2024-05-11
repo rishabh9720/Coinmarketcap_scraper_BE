@@ -57,6 +57,7 @@ class CryptoParser:
         return {
             "currency_name": utils.get_text_from_element(self.row_element, "td:nth-of-type(3)", 0),
             "symbol": utils.get_text_from_element(self.row_element, "td:nth-of-type(3)", 1),
+            "logo": utils.get_src_from_element(self.row_element, "td:nth-of-type(3)"),
             "current_price": utils.get_text_from_element(self.row_element, "td:nth-of-type(4)"),
             "hourly_change": self.get_changed_value("td:nth-of-type(5)"),
             "daily_change": self.get_changed_value("td:nth-of-type(6)"),
