@@ -8,6 +8,13 @@ The frontend component continuously polls the backend for updated data and prese
 
 ![Application Screenshot](coinmarketcap_scraper/assets/app_screenshot.png)
 
+# Scraper Recording
+https://drive.google.com/file/d/1R-vEw7R1ZLr9W0D1g2-rcSfJFg3UOOWB/view?usp=sharing
+
+# Website Recording
+https://drive.google.com/file/d/1MFgVW8JNqv1v2mVPedlW16I9-Cany8T9/view?usp=sharing
+
+
 ## Local Development Setup
 
 ### Prerequisites
