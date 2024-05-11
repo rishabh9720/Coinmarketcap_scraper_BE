@@ -29,6 +29,8 @@ ALLOWED_HOSTS = ['*']
 
 
 WEBSITE_URL = os.environ.get('WEBSITE_URL', 'https://coinmarketcap.com/')
+
+# Maximum wait time for an element to appear and be picked by Splinter
 MAXIMUM_WAIT_TIME = os.environ.get('MAXIMUM_WAIT_TIME', 10)
 
 
