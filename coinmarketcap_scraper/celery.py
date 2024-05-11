@@ -11,7 +11,7 @@ app = Celery('coinmarketcap_scraper')
 # Configure Celery app settings
 app.conf.update(
     broker_url=os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'),
-    result_backend=os.environ.get('CELERY_RESULT_BACKEND', 'django-cache'),
+    result_backend=os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379/'),
     task_serializer='json',
     accept_content=['application/json'],
     result_serializer='json',

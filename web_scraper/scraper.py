@@ -39,9 +39,9 @@ class CoinMarketCapScraper:
                 self.browser,
                 '.cmc-table tbody tr:nth-of-type({})'.format(chunk_count * chunk_size)
             )
-            table_element = self.browser.find_by_css('.cmc-table', wait_time=settings.DEFAULT_WAIT_TIME)
-            body_element = table_element.find_by_tag('tbody', wait_time=settings.DEFAULT_WAIT_TIME)
-            data_rows = body_element.find_by_tag('tr', wait_time=settings.DEFAULT_WAIT_TIME)
+            table_element = self.browser.find_by_css('.cmc-table', wait_time=settings.MAXIMUM_WAIT_TIME)
+            body_element = table_element.find_by_tag('tbody', wait_time=settings.MAXIMUM_WAIT_TIME)
+            data_rows = body_element.find_by_tag('tr', wait_time=settings.MAXIMUM_WAIT_TIME)
 
             start_index = (chunk_count - 1) * chunk_size
             end_index = chunk_count * chunk_size
